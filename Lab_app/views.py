@@ -15,3 +15,7 @@ def index(request):
 def add_member(request, member_name):
     Member.objects.create(name=member_name)
     return redirect('index')
+
+def home(request):
+    template = loader.get_template('index.html') # main.html ou index.html
+    return HttpResponse(template.render())

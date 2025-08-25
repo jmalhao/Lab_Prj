@@ -11,5 +11,6 @@ urlpatterns = [
     #path('', views.index2, name="index2"),
     path("add/<str:member_name>/", views.add_member, name="add_member"),
     path('index', views.index, name='index'),
-    path('home', views.index, name='home'),
+    path('home', views.home, name='home'),
+    #path('main', views.index, name='main'),
 ]
