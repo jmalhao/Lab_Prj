@@ -1,4 +1,4 @@
-#!e:\ai\+lab\+lab_prj\lab_prj\env\scripts\python.exe
+#!E:\AI\_Lab+\+Lab_Prj\Lab_prj\env\Scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

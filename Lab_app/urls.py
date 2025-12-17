@@ -13,4 +13,5 @@ urlpatterns = [
     path('index', views.index, name='index'),
     path('home', views.home, name='home'),
     #path('main', views.index, name='main'),
+    path('webvr', views.webvr, name='webvr'),
 ]

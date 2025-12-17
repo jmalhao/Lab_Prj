@@ -19,3 +19,7 @@ def add_member(request, member_name):
 def home(request):
     template = loader.get_template('index.html') # main.html ou index.html
     return HttpResponse(template.render())
+
+def webvr(request):
+    template = loader.get_template('webvr.html') # 
+    return HttpResponse(template.render())
