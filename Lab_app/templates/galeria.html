@@ -1,25 +1,30 @@
+{% load static %}
 <html>
   <head>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script scr="https://cdn.jsdelivr.net/gh/diarmidmackenzie/aframe-multi-camera@latest/src/mirror.min.js"></script>
     <style>
       .aframebox {
-          height: 500px;
-          width: 700px;
+          height: 200px;
+          width: 300px;
         }
     </style>
   </head>
   <body>
-    <a-scene class="aframebox" embedded>
+    <a-scene class="aframebox_" embedded>
 
         <!-- a-assets>
             <img id="texture" src="1.jpg"/>
-          </a-assets>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="1" height="1" src="#texture"></a-plane -->
+          </a-assets -->
+        <a-assets>
+          <img id="texture" src="{% static 'img/1.jpg' %}" />
+        </a-assets>
+
+      <!-- a-plane position="0 0 -4" rotation="-90 0 0" width="1" height="1" src="#texture"></a-plane -->
 
 
       <a-entity camera look-controls wasd-controls="acceleration: 5" position="0 1.6 0"></a-entity>
-      <a-entity light="type: ambient; color: #999"></a-entity>
+      <a-entity light="type: ambient; color: #555"></a-entity>
       <!-- a-entity light="type: directional; color: #FFFFFF; intensity: 0.6; castShadow: true" position="-0.5 1 1 "></a-entity -->
       <!-- Luz -->
       <!-- a-entity light="type: point; intensity: 0.75; distance: 50; decay: 2" position="0 10 10"></a-entity -->
@@ -27,7 +32,7 @@
       <!-- a-entity geometry="primitive: plane; width: 10; height: 10" material="src: 1.jpg; repeat:5 5; color:rgb(0, 100, 255)" position="0 0 0" rotation="-90 0 0"></a-entity -->
       <a-entity
             geometry="primitive: plane; width: 10; height: 10"
-            material="src: 1.jpg; repeat:5 5"
+            material="src: {% static 'img/1.jpg' %}; repeat:5 5"
             position="0 0 0"
             rotation="-90 0 0"
             normal-map="metal_map.png"
@@ -36,15 +41,15 @@
             roughness="0.3">
       </a-entity>
       <!-- Tecto -->
-      <a-entity geometry="primitive: box; width: 10; height: 0.1; depth: 10" material="src: 1.jpg; repeat:5 5; wireframe: false" position="0 2.5 0"></a-entity>
+      <a-entity geometry="primitive: box; width: 10; height: 0.1; depth: 10" material="src: {% static 'img/1.jpg' %}; repeat:5 5; wireframe: false" position="0 2.5 0"></a-entity>
       <!-- Parede Direita -->
-      <a-entity geometry="primitive: box; width: 0.1; height: 2.5; depth: 10" material="src: wall.jpg; repeat:5 1; wireframe: false" position="5 1.25 0"></a-entity>
+      <a-entity geometry="primitive: box; width: 0.1; height: 2.5; depth: 10" material="src: {% static 'img/1.jpg' %}; repeat:5 1; wireframe: false" position="5 1.25 0"></a-entity>
       <!-- Parede Esquerda -->
-      <a-entity geometry="primitive: box; width: 0.1; height: 2.5; depth: 10" material="src: wall.jpg; repeat:5 1; wireframe: false" position="-5 1.25 0"></a-entity>
+      <a-entity geometry="primitive: box; width: 0.1; height: 2.5; depth: 10" material="src: {% static 'img/1.jpg' %}; repeat:5 1; wireframe: false" position="-5 1.25 0"></a-entity>
       <!-- Parede Atrás da Camera -->
-      <a-entity geometry="primitive: box; width: 10; height: 2.5; depth: 0.1" material="src: wall.jpg; repeat:5 1; wireframe: false" position="0 1.25 5"></a-entity>
+      <a-entity geometry="primitive: box; width: 10; height: 2.5; depth: 0.1" material="src: {% static 'img/1.jpg' %}; repeat:5 1; wireframe: false" position="0 1.25 5"></a-entity>
       <!-- Parede do Fundo -->
-      <a-entity geometry="primitive: box; width: 10; height: 2.5; depth: 0.1" material="src: wall.jpg; repeat:5 1; wireframe: false" position="0 1.25 -5"></a-entity>
+      <a-entity geometry="primitive: box; width: 10; height: 2.5; depth: 0.1" material="src: {% static 'img/1.jpg' %}; repeat:5 1; wireframe: false" position="0 1.25 -5"></a-entity>
 
       <a-sky color="#000000"></a-sky>
 
@@ -55,7 +60,35 @@
        <a-entity geometry="primitive: sphere; radius: 0.05" material="color: white" light="type: point; intensity: 0" position="-4.9 2.41 0"></a-entity>
        <a-entity geometry="primitive: sphere; radius: 0.05" material="color: white" light="type: point; intensity: 0" position="-4.9 2.41 -3"></a-entity>
        <a-entity geometry="primitive: sphere; radius: 0.05" material="color: white" light="type: point; intensity: 0" position="-4.9 2.41 3"></a-entity>
+
+       <a-entity light="type: spot; intensity: 5; distance: 3; angle: 30" position="4.5 3.10114 0" rotation="-88.56609709793727 179.9998479605043 179.9998479605043"></a-entity>
+       <a-entity light="type: spot; intensity: 5; distance: 3; angle: 30" position="4.5 3.10114 -3" rotation="-88.56609709793727 179.9998479605043 179.9998479605043"></a-entity>
+       <a-entity light="type: spot; intensity: 5; distance: 3; angle: 30" position="4.5 3.10114 3" rotation="-88.56609709793727 179.9998479605043 179.9998479605043"></a-entity>
+
+       <a-entity geometry="primitive: sphere; radius: 0.05" material="color: white" light="type: point; intensity: 0" position="4.9 2.41 0"></a-entity>
+       <a-entity geometry="primitive: sphere; radius: 0.05" material="color: white" light="type: point; intensity: 0" position="4.9 2.41 -3"></a-entity>
+       <a-entity geometry="primitive: sphere; radius: 0.05" material="color: white" light="type: point; intensity: 0" position="4.9 2.41 3"></a-entity>
+
+       <a-entity light="type: spot; intensity: 5; distance: 3; angle: 30" position="0 3.10114 -4.5" rotation="-88.56609709793727 179.9998479605043 179.9998479605043"></a-entity>
+       <a-entity light="type: spot; intensity: 5; distance: 3; angle: 30" position="-3 3.10114 -4.5" rotation="-88.56609709793727 179.9998479605043 179.9998479605043"></a-entity>
+       <a-entity light="type: spot; intensity: 5; distance: 3; angle: 30" position="3 3.10114 -4.5" rotation="-88.56609709793727 179.9998479605043 179.9998479605043"></a-entity>
+
+       <a-entity geometry="primitive: sphere; radius: 0.05" material="color: white" light="type: point; intensity: 0" position="0 2.41 -4.9"></a-entity>
+       <a-entity geometry="primitive: sphere; radius: 0.05" material="color: white" light="type: point; intensity: 0" position="3 2.41 -4.9"></a-entity>
+       <a-entity geometry="primitive: sphere; radius: 0.05" material="color: white" light="type: point; intensity: 0" position="-3 2.41 -4.9"></a-entity>
+
+
+
+       <a-entity geometry="primitive: sphere; radius: 0.05" material="color: white" light="type: point; intensity: 0" position="1 2.41 -2"></a-entity>
+       <a-entity geometry="primitive: sphere; radius: 0.05" material="color: white" light="type: point; intensity: 0" position="-1 2.41 -2"></a-entity>
+
+       <a-entity light="type: spot; intensity: 1.5; distance: 4; angle: 30" position="1 3.10114 -2" rotation="-88.56609709793727 179.9998479605043 179.9998479605043"></a-entity>
+       <a-entity light="type: spot; intensity: 1.5; distance: 4; angle: 30" position="-1 3.10114 -2" rotation="-88.56609709793727 179.9998479605043 179.9998479605043"></a-entity>
       <!--a-entity geometry="primitive: box; width: 0.2; height: 0.2; depth: 0.2" material="color: white" light="type: point; intensity: 0.0" position="-5 2.41 0"></a-entity-->
+
+      <!--a-entity geometry="primitive: cylinder; radius: 0.01" material="color: white; emissive: #FFF; emissiveIntensity: 10" light="type: hemisphere; distance: 2" position="1 2.3237 -3" rotation="90 0 0"></a-entity>
+      <a-entity light="color: #333; castShadow: true; type: point; angle: 45; distance: 30" intensity="5" position="28.48451 7.13165 -25.08598" rotation="0 0 -38.502"></a-entity-->
+      
     </a-scene>
   </body>
 </html>

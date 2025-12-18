@@ -4,7 +4,7 @@ from django.template import loader
 from .models import Member
 
 def main(request):
-    template = loader.get_template('index.html') # main.html ou index.html
+    template = loader.get_template('main.html') # main.html ou index.html
     return HttpResponse(template.render())
 
 def index(request):
