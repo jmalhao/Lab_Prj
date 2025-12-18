@@ -23,3 +23,7 @@ def home(request):
 def webvr(request):
     template = loader.get_template('webvr.html')
     return HttpResponse(template.render())
+
+def galeria(request):
+    template = loader.get_template('galeria.html')
+    return HttpResponse(template.render())
